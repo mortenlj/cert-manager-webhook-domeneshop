@@ -13,7 +13,7 @@ certManager:
   serviceAccountName: cert-manager
 
 image:
-  repository: domeneshop/cert-manager-webhook-domeneshop
+  repository: ghcr.io/mortenlj/cert-manager-webhook-domeneshop
   tag: latest
   pullPolicy: Always
 
