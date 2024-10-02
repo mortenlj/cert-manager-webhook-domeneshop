@@ -31,12 +31,6 @@ jobs:
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Install cosign
-        uses: sigstore/cosign-installer@4959ce089c160fddf62f7b42464195ba1a56d382 # ratchet:sigstore/cosign-installer@main
-        with:
-          cosign-release: 'v2.2.3'
-      - name: Verify runner image
-        run: cosign verify --certificate-identity keyless@distroless.iam.gserviceaccount.com --certificate-oidc-issuer https://accounts.google.com gcr.io/distroless/static-debian11
       - name: "Docker metadata"
         id: "metadata"
         uses: docker/metadata-action@v5
