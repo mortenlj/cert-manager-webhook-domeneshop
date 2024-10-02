@@ -14,8 +14,9 @@ jobs:
     name: Build and push
     runs-on: ubuntu-22.04
     permissions:
-      contents: write
+      contents: read
       id-token: write
+      packages: write
     steps:
       - name: "Set build date"
         id: constants
