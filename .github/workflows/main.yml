@@ -25,7 +25,7 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
       - name: Login to GitHub Packages Docker Registry
-        if: github.base_ref == 'refs/heads/main'
+        if: github.ref == 'refs/heads/main'
         uses: docker/login-action@v3
         with:
           registry: ghcr.io
@@ -50,6 +50,6 @@ jobs:
             GIT_BRANCH=${{ github.ref }}
             BUILD_DATE=${{ steps.constants.outputs.build_date }}
           file: ./Dockerfile
-          push: ${{ github.base_ref == 'refs/heads/main' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
