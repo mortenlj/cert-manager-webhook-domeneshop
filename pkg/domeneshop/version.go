@@ -8,7 +8,7 @@ import (
 
 // Version information fetched from environment variables in docker build process
 var (
-	version   = "1.0.0"
+	version   = "1.1.0+mortenlj"
 	gitCommit = os.Getenv("GIT_COMMIT")
 	buildDate = os.Getenv("BUILD_DATE")
 )

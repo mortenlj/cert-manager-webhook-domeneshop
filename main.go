@@ -11,8 +11,6 @@ import (
 	extapi "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	"k8s.io/klog"
 
-	//"k8s.io/client-go/kubernetes"
-
 	"github.com/cert-manager/cert-manager/pkg/acme/webhook/apis/acme/v1alpha1"
 	"github.com/cert-manager/cert-manager/pkg/acme/webhook/cmd"
 	"github.com/cert-manager/cert-manager/pkg/issuer/acme/dns/util"
@@ -132,15 +130,18 @@ func (c *domeneshopDNSProviderSolver) Present(ch *v1alpha1.ChallengeRequest) err
 
 	client, err := c.getClient(ch)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to get domeneshop client: %w", err)
 	}
 
 	domain, err := client.GetDomainByName(util.UnFqdn(ch.ResolvedZone))
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to get domain by name: %w", err)
 	}
 
-	client.CreateTXTRecord(domain, util.UnFqdn(strings.TrimSuffix(ch.ResolvedFQDN, ch.ResolvedZone)), ch.Key)
+	err = client.CreateTXTRecord(domain, util.UnFqdn(strings.TrimSuffix(ch.ResolvedFQDN, ch.ResolvedZone)), ch.Key)
+	if err != nil {
+		return fmt.Errorf("failed to create TXT record: %w", err)
+	}
 
 	return nil
 }
@@ -154,16 +155,17 @@ func (c *domeneshopDNSProviderSolver) Present(ch *v1alpha1.ChallengeRequest) err
 func (c *domeneshopDNSProviderSolver) CleanUp(ch *v1alpha1.ChallengeRequest) error {
 	client, err := c.getClient(ch)
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to get domeneshop client: %w", err)
 	}
 
 	domain, err := client.GetDomainByName(util.UnFqdn(ch.ResolvedZone))
 	if err != nil {
-		return err
+		return fmt.Errorf("failed to get domain by name: %w", err)
 	}
 
-	if err := client.DeleteTXTRecord(domain, util.UnFqdn(strings.TrimSuffix(ch.ResolvedFQDN, ch.ResolvedZone)), ch.Key); err != nil {
-		return err
+	err = client.DeleteTXTRecord(domain, util.UnFqdn(strings.TrimSuffix(ch.ResolvedFQDN, ch.ResolvedZone)), ch.Key)
+	if err != nil {
+		return fmt.Errorf("failed to delete TXT record: %w", err)
 	}
 
 	return nil
