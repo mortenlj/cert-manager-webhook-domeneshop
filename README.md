@@ -4,7 +4,9 @@ This is a DNS01 webhook implementation for [cert-manager](https://github.com/cer
 allowing usage of the [Domeneshop API](https://api.domeneshop.no/docs/) to issue certificates for
 wildcard domains or other names that are not publicly accessible.
 
-This repository is based on the [cert-manager-webhook-example](https://github.com/cert-manager/cert-manager-webhook-example) repository provided by Jetstack.
+This repository is based on [cert-manager-webhook-domeneshop](https://github.com/domeneshop/cert-manager-webhook-domeneshop), which is based on the [cert-manager-webhook-example](https://github.com/cert-manager/cert-manager-webhook-example) repository provided by Jetstack.
+
+Since Domeneshop has stated that they do not intend to further maintain their repository, I decided to make a separate copy and make my changes here.
 
 # Usage
 
