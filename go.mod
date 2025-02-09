@@ -2,7 +2,7 @@ module github.com/domeneshop/cert-manager-webhook-domeneshop
 
 go 1.23
 
-toolchain go1.23.2
+toolchain go1.23.6
 
 require (
 	github.com/cert-manager/cert-manager v1.15.3
