@@ -6,10 +6,10 @@ toolchain go1.24.2
 
 require (
 	github.com/cert-manager/cert-manager v1.17.1
-	k8s.io/api v0.32.3
-	k8s.io/apiextensions-apiserver v0.32.3
-	k8s.io/apimachinery v0.32.3
-	k8s.io/client-go v0.32.3
+	k8s.io/api v0.32.4
+	k8s.io/apiextensions-apiserver v0.32.4
+	k8s.io/apimachinery v0.32.4
+	k8s.io/client-go v0.32.4
 	k8s.io/klog v0.4.0
 	k8s.io/klog/v2 v2.130.1
 )
@@ -106,9 +106,9 @@ require (
 	gopkg.in/natefinch/lumberjack.v2 v2.2.1 // indirect
 	gopkg.in/yaml.v2 v2.4.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	k8s.io/apiserver v0.32.3 // indirect
-	k8s.io/component-base v0.32.3 // indirect
-	k8s.io/kms v0.32.3 // indirect
+	k8s.io/apiserver v0.32.4 // indirect
+	k8s.io/component-base v0.32.4 // indirect
+	k8s.io/kms v0.32.4 // indirect
 	k8s.io/kube-openapi v0.0.0-20241212222426-2c72e554b1e7 // indirect
 	k8s.io/utils v0.0.0-20241210054802-24370beab758 // indirect
 	sigs.k8s.io/apiserver-network-proxy/konnectivity-client v0.31.1 // indirect
