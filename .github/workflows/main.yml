@@ -41,6 +41,19 @@ jobs:
           tags: |
             type=raw,value={{date 'YYYY-MM-DD-HHmmss' tz='Europe/Oslo'}}-{{sha}}
             type=raw,value=latest
+      - name: "Just build"
+        uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6
+        with:
+          platforms: linux/amd64,linux/arm64
+          build-args: |
+            GIT_COMMIT=${{ github.sha }}
+            GIT_BRANCH=${{ github.ref }}
+            BUILD_DATE=${{ steps.constants.outputs.build_date }}
+          push: false
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
       - name: "Build and push"
         id: "build_push"
         uses: docker/build-push-action@263435318d21b8e681c14492fe198d362a7d2c83 # v6
