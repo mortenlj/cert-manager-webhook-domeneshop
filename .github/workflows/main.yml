@@ -14,7 +14,7 @@ jobs:
     name: Build and push
     runs-on: ubuntu-24.04
     permissions:
-      contents: write
+      contents: read
       id-token: write
       packages: write
     steps:
@@ -50,7 +50,6 @@ jobs:
             GIT_COMMIT=${{ github.sha }}
             GIT_BRANCH=${{ github.ref }}
             BUILD_DATE=${{ steps.constants.outputs.build_date }}
-          file: ./Dockerfile
           push: ${{ github.ref == 'refs/heads/main' }}
           tags: ${{ steps.metadata.outputs.tags }}
           labels: ${{ steps.metadata.outputs.labels }}
