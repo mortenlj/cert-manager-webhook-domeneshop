@@ -1,4 +1,4 @@
-FROM --platform=$BUILDPLATFORM golang:1.24-alpine@sha256:ddf52008bce1be455fe2b22d780b6693259aaf97b16383b6372f4b22dd33ad66 AS build_deps
+FROM --platform=$BUILDPLATFORM golang:1.24-alpine@sha256:48ee313931980110b5a91bbe04abdf640b9a67ca5dea3a620f01bacf50593396 AS build_deps
 
 RUN apk add --no-cache git
 
