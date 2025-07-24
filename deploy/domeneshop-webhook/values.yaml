@@ -14,7 +14,7 @@ certManager:
 
 image:
   repository: ghcr.io/mortenlj/cert-manager-webhook-domeneshop
-  tag: latest@sha256:3580f1fa365703e6d5a8172015faf80d424f2356949ebd386dcbf43d7aeac84b
+  tag: latest@sha256:728ab86455eae830d8ab9f11550640befa45e60e7d359db1c7ee03f6e494f866
   pullPolicy: Always
 
 nameOverride: ""
