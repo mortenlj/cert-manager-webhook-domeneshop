@@ -8,7 +8,7 @@ require (
 	github.com/cert-manager/cert-manager v1.19.4
 	k8s.io/api v0.35.2
 	k8s.io/apiextensions-apiserver v0.35.2
-	k8s.io/apimachinery v0.35.2
+	k8s.io/apimachinery v0.35.3
 	k8s.io/client-go v0.35.2
 	k8s.io/klog/v2 v2.140.0
 )
